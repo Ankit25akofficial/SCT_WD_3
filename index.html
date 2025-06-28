@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tic Tac Toe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(120deg, #23243a 80%, #181c22 100%);
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    #board {
+      margin-top: 60px;
+      background: rgba(30,34,60,0.98);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px #00e6ff33, 0 2px 16px #ff408144;
+      padding: 36px 32px 32px 32px;
+      text-align: center;
+      min-width: 340px;
+      max-width: 95vw;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+    #heading {
+      font-size: 3em;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #00e6ff, #ff4081 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 24px #00e6ff88, 0 2px 8px #ff408144;
+      margin-bottom: 18px;
+      font-family: 'Poppins', Arial, sans-serif;
+    }
+    #cellContainer {
+      display: grid;
+      grid-template-columns: repeat(3, 75px);
+      grid-template-rows: repeat(3, 75px);
+      gap: 8px;
+      justify-content: center;
+      margin: 0 auto 32px auto;
+      background: #181c22;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px #00e6ff22;
+      padding: 12px;
+      width: max-content;
+    }
+    .cell {
+      width: 75px;
+      height: 75px;
+      border: 2px solid #00e6ff;
+      border-radius: 10px;
+      background: #23243a;
+      font-size: 2.5em;
+      color: #ff7340;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+      box-shadow: 0 2px 8px #00e6ff33;
+      user-select: none;
+    }
+    .cell:hover {
+      background: #00e6ff22;
+      color: #00e6ff;
+      box-shadow: 0 0 16px 2px #00e6ff99;
+    }
+    #statusText {
+      font-size: 1.5em;
+      font-weight: 700;
+      margin: 18px 0 0 0;
+      color: #fff;
+      letter-spacing: 1px;
+      min-height: 32px;
+      text-shadow: 0 2px 8px #00e6ff44;
+    }
+    #restartBtn {
+      border: none;
+      font-size: 1.2em;
+      font-weight: 700;
+      padding: 14px 36px;
+      margin-top: 24px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #ffbb00 60%, #ff4081 100%);
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 4px 24px #00e6ff55;
+      transition: background 0.3s, transform 0.2s;
+    }
+    #restartBtn:hover {
+      background: linear-gradient(90deg, #ff8c40 60%, #ff8800 100%);
+      transform: scale(1.07);
+    }
+    .desc-btn {
+      margin-top: 36px;
+      text-align: center;
+    }
+    .desc-btn button {
+      padding: 16px 36px;
+      font-size: 1.3em;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      color: #fff;
+      background: linear-gradient(90deg, #ff7300 60%, #ff8940 100%);
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px #00e6ff55;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .desc-btn button:hover {
+      background: linear-gradient(90deg, #ff7518 60%, #ff8800 100%);
+      transform: scale(1.07);
+    }
+    @media (max-width: 600px) {
+      #board {
+        padding: 18px 4vw;
+        min-width: unset;
+      }
+      #heading {
+        font-size: 2em;
+      }
+      #cellContainer {
+        grid-template-columns: repeat(3, 48px);
+        grid-template-rows: repeat(3, 48px);
+        padding: 6px;
+      }
+      .cell {
+        width: 48px;
+        height: 48px;
+        font-size: 1.5em;
+      }
+      .desc-btn button {
+        font-size: 1em;
+        padding: 10px 18px;
+      }
+    }
+  </style>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div id="board">
+    <h1 id="heading">Tic Tac Toe</h1>
+    <div id="cellContainer">
+      <div class="cell" cellIndex="0"></div>
+      <div class="cell" cellIndex="1"></div>
+      <div class="cell" cellIndex="2"></div>
+      <div class="cell" cellIndex="3"></div>
+      <div class="cell" cellIndex="4"></div>
+      <div class="cell" cellIndex="5"></div>
+      <div class="cell" cellIndex="6"></div>
+      <div class="cell" cellIndex="7"></div>
+      <div class="cell" cellIndex="8"></div>
+    </div>
+    <h2 id="statusText"></h2>
+    <button id="restartBtn">Restart</button>
+    <div class="desc-btn">
+      <button 
+        onclick="window.open('task03-tictactoe-section.html', '_blank')"
+        title="View Task Description"
+      >
+        📄 View Task Description
+      </button>
+    </div>
+  </div>
+</body>
+</html>

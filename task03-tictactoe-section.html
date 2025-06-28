@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 03 – Tic-Tac-Toe Web Application</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(120deg, #23243a 80%, #181c22 100%);
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .task-section {
+      background: linear-gradient(120deg, #23243a 80%, #181c22 100%);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px #00e6ff33, 0 2px 16px #ff408144;
+      padding: 36px 32px 36px 32px;
+      position: relative;
+      overflow: hidden;
+      margin: 40px auto;
+      max-width: 900px;
+      width: 100%;
+    }
+    .task-header {
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+    }
+    .task-badge {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 800;
+      font-size: 1.3em;
+      color: #fff;
+      border: 2.5px solid #ff4081;
+      border-radius: 10px;
+      padding: 8px 28px;
+      letter-spacing: 2px;
+      background: rgba(255,64,129,0.08);
+      box-shadow: 0 2px 12px #ff408144;
+      text-shadow: 0 2px 8px #ff408144;
+    }
+    .task-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .task-title {
+      font-family: 'Orbitron', 'Montserrat', Arial, sans-serif;
+      font-size: 2.1em;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(90deg, #00e6ff, #ff4081 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 24px #00e6ff88, 0 2px 8px #ff408144;
+    }
+    .emoji {
+      font-size: 1.2em;
+      filter: drop-shadow(0 0 8px #00e6ff88);
+    }
+    .task-desc {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1.15em;
+      color: #e0e0e0;
+      max-width: 420px;
+      line-height: 1.7;
+      background: rgba(24,28,34,0.85);
+      border-radius: 14px;
+      padding: 18px 22px;
+      box-shadow: 0 2px 12px #00e6ff22;
+    }
+    .task-desc ul {
+      margin: 10px 0 10px 18px;
+      padding: 0;
+    }
+    .task-desc li {
+      margin-bottom: 6px;
+      font-size: 1em;
+      color: #00e6ff;
+      font-weight: 600;
+      text-shadow: 0 2px 8px #00e6ff44;
+    }
+    .task-desc .highlight {
+      color: #e76727;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .task-circles {
+      position: absolute;
+      top: 0; right: 0; left: 0; bottom: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.18;
+      border: 2.5px solid #00e6ff;
+      animation: floatCircle 6s infinite alternate;
+    }
+    .circle1 {
+      width: 120px; height: 120px;
+      top: -40px; right: -40px;
+      border-color: #00e6ff;
+      animation-delay: 0s;
+    }
+    .circle2 {
+      width: 80px; height: 80px;
+      bottom: -30px; left: -30px;
+      border-color: #ff5d40;
+      animation-delay: 2s;
+    }
+    @keyframes floatCircle {
+      from { transform: translateY(0) scale(1);}
+      to   { transform: translateY(24px) scale(1.08);}
+    }
+    @media (max-width: 700px) {
+      .task-content {
+        flex-direction: column;
+        gap: 18px;
+      }
+      .task-title {
+        font-size: 1.3em;
+      }
+      .task-desc {
+        font-size: 1em;
+        padding: 12px 8px;
+      }
+      .task-section {
+        padding: 18px 6vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="task-section">
+    <div class="task-header">
+      <span class="task-badge">TASK 03</span>
+    </div>
+    <div class="task-content">
+      <div class="task-title">
+        <span class="emoji">🎮</span>
+        <span>TIC-TAC-TOE WEB APPLICATION</span>
+      </div>
+      <div class="task-desc">
+        <p>
+          <span class="highlight">Build</span> a <b>tic-tac-toe web application</b> to play against a friend or the computer.<br>
+          <span class="highlight">Features:</span>
+        </p>
+        <ul>
+          <li>✨ Interactive, animated game board</li>
+          <li>🧑‍🤝‍🧑 Player vs Player </li>
+          <li>🖱️ Responsive to user clicks and touch</li>
+          <li>🏆 Real-time win/draw detection with visual effects</li>
+          <li>🔄 Option to restart and play again</li>
+        </ul>
+        <p>
+          <span class="highlight">Goal:</span> Create an engaging, modern tic-tac-toe experience with smooth UI and clear feedback for every move!
+        </p>
+      </div>
+      <div style="text-align:center; margin-top: 40px;">
+  <button 
+    onclick="window.open('index.html', '_blank')" 
+    style="
+      padding: 16px 36px;
+      font-size: 1.3em;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      color: #fff;
+      background: linear-gradient(90deg, #ff6600 60%, #ff8040 100%);
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px #00e6ff55;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    "
+    onmouseover="this.style.background='linear-gradient(90deg, #ff4081 60%, #00e6ff 100%)'; this.style.transform='scale(1.07)'"
+    onmouseout="this.style.background='linear-gradient(90deg, #00e6ff 60%, #ff4081 100%)'; this.style.transform='scale(1)'"
+  >
+    📄 Tic Tac Toe
+  </button>
+</div>
+    </div>
+    <div class="task-circles">
+      <div class="circle circle1"></div>
+      <div class="circle circle2"></div>
+    </div>
+  </div>
